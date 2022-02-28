@@ -1,0 +1,71 @@
+﻿<Project Sdk="MSBuild.Sdk.Extras/3.0.38">
+
+	<PropertyGroup>
+		<TargetFrameworks>netstandard2.0;xamarin.ios10;monoandroid12.0</TargetFrameworks>
+        <Authors>Allan Ritchie</Authors>
+        <Owners>aritchie;shinylib</Owners>
+        <LangVersion>latest</LangVersion>
+        <Nullable>enable</Nullable>
+        <Description>Shiny Platform Configuration for Android and iOS</Description>
+        <Product>$(AssemblyName) ($(TargetFramework))</Product>
+        <ShinyVersion Condition=" '$(ShinyVersion)' == '' ">1.0.0</ShinyVersion>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageProjectUrl>https://shinylib.net</PackageProjectUrl>
+        <PackageVersion>$(ShinyVersion)</PackageVersion>
+        <PackageIcon>icon.png</PackageIcon>
+        <PackageReleaseNotes>https://shinylib.net/release-notes/</PackageReleaseNotes>
+        <PackageTags>xamarin ios android bleconfiguration</PackageTags>
+        <PackageReadmeFile>readme.md</PackageReadmeFile>
+        <RepositoryUrl>https://github.com/shinyorg/shiny</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+    </PropertyGroup>
+	
+    <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+        <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
+        <IncludeSource>True</IncludeSource>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+        <PublishRepositoryUrl>True</PublishRepositoryUrl>
+        <EmbedUntrackedSources>True</EmbedUntrackedSources>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(GITHUB_ACTIONS)' == 'true'">
+        <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <None Include="Platforms\**\*.cs" />
+        <Compile Remove="Platforms\Android\AndroidConfigurationProvider.cs" />
+        <Compile Remove="Platforms\Android\AndroidConfigurationSource.cs" />
+        <Compile Remove="Platforms\Android\SharedPreferenceConfigurationProvider.cs" />
+        <Compile Remove="Platforms\Android\SharedPreferenceConfigurationSource.cs" />
+        <Compile Remove="Platforms\iOS\PlistConfigurationProvider.cs" />
+        <Compile Remove="Platforms\iOS\PlistConfigurationSource.cs" />
+        <None Remove="Platforms\Android\ConfigurationBuilderExtensions.cs" />
+        <None Remove="Platforms\iOS\ConfigurationBuilderExtensions.cs" />
+        <None Remove="Platforms\Shared\ConfigurationBuilderExtensions.cs" />
+        <!--<None Include="$(MSBuildThisFileDirectory)nuget.png" Pack="true" PackagePath="icon.png" />
+        <None Include="$(MSBuildThisFileDirectory)nuget.txt" Pack="true" PackagePath="readme.txt" />
+        <None Include="..\..\readme.md" Pack="true" PackagePath="\" />-->
+        <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1" PrivateAssets="All" />
+		<PackageReference Include="Microsoft.Extensions.Configuration" Version="6.0.0" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="6.0.0" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="6.0.0" />
+    </ItemGroup>
+
+    <ItemGroup Condition="$(TargetFramework.Contains('netstandard'))">
+        <Compile Include="**\Platforms\netstandard\**\*.cs" />
+        <Compile Include="**\Platforms\Shared\**\*.cs" />
+    </ItemGroup>
+
+    <ItemGroup Condition="$(TargetFramework.Contains('android'))">
+        <Compile Include="**\Platforms\Android\**\*.cs" />
+        <Compile Include="**\Platforms\Shared\**\*.cs" />
+    </ItemGroup>
+
+    <ItemGroup Condition="$(TargetFramework.Contains('ios'))">
+        <Compile Include="**\Platforms\Shared\**\*.cs" />
+        <Compile Include="**\Platforms\iOS\**\*.cs" />
+    </ItemGroup>
+</Project>
