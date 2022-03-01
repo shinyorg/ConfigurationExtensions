@@ -1,4 +1,6 @@
-﻿namespace Microsoft.Extensions.Configuration
+﻿using System.ComponentModel;
+
+namespace Microsoft.Extensions.Configuration
 {
     public static partial class ConfigurationBuilderExtensions
     {
@@ -22,5 +24,16 @@
 #endif
             return builder;
         }
+
+
+        //public static T BindTwoWay<T>(this IConfiguration configuration, T obj) where T : INotifyPropertyChanged
+        //{
+        //    // TODO: sub-binding if deep binding set?
+        //    obj.PropertyChanged += (sender, args) =>
+        //    {
+
+        //    };
+        //    return obj;
+        //}
     }
 }
