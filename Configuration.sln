@@ -9,7 +9,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample.iOS", "Sample\Sample
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sample", "Sample\Sample\Sample.csproj", "{ECB5A101-F0EE-46E2-9451-DA1631B5E194}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shiny.Extensions.Configuration", "src\Shiny.Extensions.Configuration\Shiny.Extensions.Configuration.csproj", "{38FC4C9D-56A4-47C7-9E7A-753CCCE57895}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shiny.Extensions.Configuration", "src\Shiny.Extensions.Configuration\Shiny.Extensions.Configuration.csproj", "{38FC4C9D-56A4-47C7-9E7A-753CCCE57895}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{6760E7F5-6117-4D50-952F-6A04D7655AD3}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

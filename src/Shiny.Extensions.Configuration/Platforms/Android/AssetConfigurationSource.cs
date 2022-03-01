@@ -3,9 +3,9 @@
 
 namespace Shiny.Extensions.Configuration
 {
-    public class PlistConfigurationSource : IConfigurationSource
+    public class AssetConfigurationSource : IConfigurationSource
     {
         public IConfigurationProvider Build(IConfigurationBuilder builder)
-            => new PlistConfigurationProvider();
+            => new AssetConfigurationProvider();
     }
 }

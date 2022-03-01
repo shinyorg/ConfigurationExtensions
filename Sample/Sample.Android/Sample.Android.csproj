@@ -63,8 +63,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\AboutResources.txt" />
-    <None Include="Assets\AboutAssets.txt" />
+    <AndroidAsset Include="Assets\appsettings.json" />
     <None Include="Properties\AndroidManifest.xml" />
   </ItemGroup>
   <ItemGroup>
@@ -87,10 +86,9 @@
     <Folder Include="Resources\drawable\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Sample.iOS\Sample.iOS.csproj">
-      <Project>{48b7bdfc-7738-4f09-835d-4ef5bad5f2f4}</Project>
-      <Name>Sample.iOS</Name>
-      <IsAppExtension>false</IsAppExtension>
+    <ProjectReference Include="..\..\src\Shiny.Extensions.Configuration\Shiny.Extensions.Configuration.csproj">
+      <Project>{38fc4c9d-56a4-47c7-9e7a-753ccce57895}</Project>
+      <Name>Shiny.Extensions.Configuration</Name>
     </ProjectReference>
     <ProjectReference Include="..\Sample\Sample.csproj">
       <Project>{50A2371C-D233-463D-B1C5-3A5B10B33612}</Project>

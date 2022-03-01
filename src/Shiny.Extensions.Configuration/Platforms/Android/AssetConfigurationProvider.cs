@@ -4,7 +4,7 @@ using System;
 
 namespace Shiny.Extensions.Configuration
 {
-    public class PlistConfigurationProvider : ConfigurationProvider
+    public class AssetConfigurationProvider : ConfigurationProvider
     {
         public void Load()
         {
