@@ -52,6 +52,7 @@
     </ItemGroup>
 
     <ItemGroup Condition="$(TargetFramework.Contains('android'))">
+		<PackageReference Include="Xamarin.AndroidX.Preference" Version="1.1.1.13" />
         <Compile Include="Platforms\Android\**\*.cs" />
         <Compile Include="Platforms\Shared\**\*.cs" />
     </ItemGroup>
