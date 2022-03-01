@@ -36,10 +36,11 @@ How Shiny.Extensions.Configuration brings the power of IConfiguration to Mobile!
 
 #### AppSettings JSON
 
-1. Create an appsettings.json file like you would in ASP.NET Core application in your HEAD project.
+1. Install the NuGet package 'Shiny.Extensions.Configuration'
+2. Create an appsettings.json file like you would in ASP.NET Core application in your HEAD project.
     * **ANDROID:** *place the file in: Assets.  Ensure the build action on the file is set to 'AndroidAsset'*
     * **iOS:** *place the file in the ROOT of your project.  Ensure the build action on the file is set to 'BundleResource'*
-2. Configure your IConfiguration using the following code in your application startup code (ie. Xamarin.Forms App).
+3. Configure your IConfiguration using the following code in your application startup code (ie. Xamarin.Forms App).
 
 ```csharp
 // store this in your dependency injection container OR static class
@@ -52,7 +53,8 @@ var config = new ConfigurationBuilder()
 
 This provider allows writes and persists across application restarts.  It is a wrapper around the Android/iOS shared preferences.
 
-For this configuration source, nothing special is required, simply add the following to the configuration builder.
+1. Install the NuGet package 'Shiny.Extensions.Configuration'
+2. For this configuration source, nothing special is required, simply add the following to the configuration builder:
 
 ```csharp
 var configuration = new ConfigurationBuilder()
