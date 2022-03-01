@@ -1,7 +1,8 @@
 ﻿<Project Sdk="MSBuild.Sdk.Extras/3.0.38">
 
 	<PropertyGroup>
-		<TargetFrameworks>netstandard2.0;xamarin.ios10;monoandroid12.0;</TargetFrameworks>
+		<TargetFrameworks>netstandard2.0;xamarin.ios10;monoandroid12.0</TargetFrameworks>
+		<!--<TargetFrameworks>netstandard2.0;xamarin.ios10;monoandroid12.0;net6-android;net6-ios</TargetFrameworks>-->
         <Authors>Allan Ritchie</Authors>
         <Owners>aritchie;shinylib</Owners>
         <LangVersion>latest</LangVersion>
@@ -9,12 +10,12 @@
         <Description>Xamarin Configuration Sources (Android/iOS) for Microsoft.Extensions.Configuration</Description>
         <Product>$(AssemblyName) ($(TargetFramework))</Product>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
-        <PackageProjectUrl>https://shinylib.net</PackageProjectUrl>
-        <PackageReleaseNotes>https://shinylib.net/release-notes/</PackageReleaseNotes>
+        <PackageProjectUrl>https://github.com/shinyorg/configurationextensions</PackageProjectUrl>
+        <PackageReleaseNotes>https://github.com/shinyorg/configurationextensions</PackageReleaseNotes>
         <PackageTags>xamarin ios android configuration</PackageTags>
 		<PackageIcon>nuget.png</PackageIcon>
         <PackageReadmeFile>readme.md</PackageReadmeFile>
-        <RepositoryUrl>https://github.com/shinyorg/shiny</RepositoryUrl>
+        <RepositoryUrl>https://github.com/shinyorg/configurationextensions</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
     </PropertyGroup>
 
