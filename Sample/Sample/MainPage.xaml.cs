@@ -15,7 +15,7 @@ namespace Sample
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            ((MainViewModel)this.BindingContext).Load.Execute(null);
+            (this.BindingContext as MainViewModel)?.OnAppearing();
         }
     }
 }

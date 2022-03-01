@@ -19,4 +19,10 @@
 	<ItemGroup>
 		<ProjectReference Include="..\..\src\Shiny.Extensions.Configuration\Shiny.Extensions.Configuration.csproj" />
 	</ItemGroup>
+
+	<ItemGroup>
+	  <EmbeddedResource Update="EntryPage.xaml">
+	    <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+	  </EmbeddedResource>
+	</ItemGroup>
 </Project>

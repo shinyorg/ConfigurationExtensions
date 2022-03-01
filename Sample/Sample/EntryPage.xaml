@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:sample="clr-namespace:Sample"
+             x:DataType="sample:EntryViewModel"
+             x:Class="Sample.EntryPage"
+             Title="Configuration Entry">
+
+    <ContentPage.BindingContext>
+        <sample:EntryViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Key" />
+            <Entry Text="{Binding Key}" />
+
+            <Label Text="Value" />
+            <Entry Text="{Binding Value}" />
+
+            <Button Text="{Binding ActionText}"
+                    Command="{Binding Enter}" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

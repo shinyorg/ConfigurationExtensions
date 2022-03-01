@@ -2,23 +2,22 @@
 using Microsoft.Extensions.Primitives;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
 using System.Windows.Input;
 using Xamarin.Forms;
 
 
 namespace Sample
 {
-    public class MainViewModel : INotifyPropertyChanged
+    public class MainViewModel : Shiny.NotifyPropertyChanged
     {
         readonly IChangeToken changeToken;
+        bool initialLoad = true;
 
 
         public MainViewModel()
         {
             this.changeToken = App.Configuration.GetReloadToken();
-            this.changeToken.RegisterChangeCallback(_ => this.Load.Execute(null), null);
+            this.changeToken.RegisterChangeCallback(_ => this.Load!.Execute(null), null);
 
             this.Load = new Command(() =>
             {
@@ -26,35 +25,37 @@ namespace Sample
                 this.Values.Clear();
 
                 while (en.MoveNext())
-                    this.Values.Add((en.Current.Key, en.Current.Value));
+                {
+                    Console.WriteLine($"{en.Current.Key}: {en.Current.Value}");
+
+                    this.Values.Add(new Item(en.Current.Key, en.Current.Value));
+                }
 
                 this.LastLoad = DateTime.Now;
-                this.OnChange();
+                this.RaisePropertyChanged(nameof(this.LastLoad));
+                this.RaisePropertyChanged(nameof(this.Values));
             });
 
             this.Set = new Command(async () =>
             {
-                var key = await App.Current.MainPage.DisplayPromptAsync("Configuration Entry", "Please enter your key");
-                if (String.IsNullOrWhiteSpace(key))
-                    return;
-
-                var value = await App.Current.MainPage.DisplayPromptAsync("Configuration Entry", "Please enter your value"); 
-                if (String.IsNullOrWhiteSpace(key))
-                    return;
-
-                App.Configuration[key] = value;
+                await App.Current.MainPage.Navigation.PushAsync(new EntryPage(), true);
             });
         }
 
 
         public DateTime LastLoad { get; private set; }
-        public List<(string Key, string Value)> Values { get; } = new List<(string Key, string Value)>();
+        public List<Item> Values { get; } = new List<Item>();
         public ICommand Load { get; }
         public ICommand Set { get; }
 
 
-        void OnChange([CallerMemberName] string? propertyName = null)
-            => this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        public event PropertyChangedEventHandler PropertyChanged;
+        public void OnAppearing()
+        {
+            if (this.initialLoad)
+            {
+                this.Load.Execute(null);
+                this.initialLoad = false;
+            }
+        }
     }
 }

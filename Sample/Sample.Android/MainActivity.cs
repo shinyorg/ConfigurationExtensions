@@ -9,7 +9,7 @@ using Xamarin.Forms.Platform.Android;
 namespace Sample.Droid
 {
     [Activity(
-        Label = "Sample",
+        Label = "Configuration",
         Icon = "@mipmap/icon",
         Theme = "@style/MainTheme",
         MainLauncher = true,

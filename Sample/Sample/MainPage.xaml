@@ -1,6 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:sample="clr-namespace:Sample"
+             x:DataType="sample:MainViewModel"
              x:Class="Sample.MainPage"
              Title="Configuration">
 
@@ -9,21 +11,49 @@
     </ContentPage.ToolbarItems>
 
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="{Binding LastLoad, StringFormat='Last Loaded: {0:hh mm:ss tt}'}" 
-                   FontSize="Title" 
-                   HorizontalTextAlignment="Center" />
-            
-            <CollectionView ItemsSource="{Binding Values}">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Label Text="{Binding LastLoad, StringFormat='Last Loaded: {0:hh:mm:ss}'}"
+                   FontSize="Title"
+                   HorizontalTextAlignment="Center"
+                   Grid.Row="0" />
+
+            <CollectionView ItemsSource="{Binding Values}"
+                            Grid.Row="1">
                 <CollectionView.ItemTemplate>
-                    <DataTemplate>
-                        <StackLayout>
-                            <Label Text="{Binding Key}" FontSize="Large" FontAttributes="Bold" />
-                            <Label Text="{Binding Value}" FontSize="Medium" FontAttributes="Italic" />
-                        </StackLayout>
+                    <DataTemplate x:DataType="sample:Item">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+
+                            <Label Text="{Binding Key}"
+                                    TextColor="Red"
+                                    FontSize="Large"
+                                    FontAttributes="Bold"
+                                    Grid.Row="0" />
+
+                            <Label Text="{Binding Value}"
+                                   TextColor="Red"
+                                   FontSize="Medium"
+                                   FontAttributes="Italic"
+                                   Grid.Row="1" />
+
+                            <BoxView HorizontalOptions="FillAndExpand"
+                                     VerticalOptions="Center"
+                                     BackgroundColor="Red"
+                                     HeightRequest="1"
+                                     Grid.Row="2" />
+                        </Grid>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
-        </StackLayout>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

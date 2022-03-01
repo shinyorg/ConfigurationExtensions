@@ -23,7 +23,7 @@
 	<key>MinimumOSVersion</key>
 	<string>8.0</string>
 	<key>CFBundleDisplayName</key>
-	<string>Sample</string>
+	<string>Configuration</string>
 	<key>CFBundleIdentifier</key>
 	<string>org.shiny.configuration</string>
 	<key>CFBundleVersion</key>

@@ -1,12 +1,35 @@
 ﻿using Foundation;
 using Microsoft.Extensions.Configuration;
+using System;
 
 
 namespace Shiny.Extensions.Configuration
 {
     public class NSUserDefaultsConfigurationProvider : ConfigurationProvider
     {
+        IDisposable? observer;
+
+
         public override void Load()
+        {
+            this.DoLoad();
+            base.Load();
+        }
+
+
+        public override void Set(string key, string value)
+        {
+            using (var native = NSUserDefaults.StandardUserDefaults)
+            {
+                native.SetString(value, key);
+                native.Synchronize();
+            }
+            base.Set(key, value);
+            this.OnReload();
+        }
+
+
+        protected virtual void DoLoad()
         {
             using (var native = NSUserDefaults.StandardUserDefaults)
             {
@@ -17,20 +40,7 @@ namespace Shiny.Extensions.Configuration
                     var value = pair.Value.ToString();
                     this.Data.Add(key, value);
                 }
-                //native.DidChange()
             }
-            base.Load();
-        }
-
-
-        public override void Set(string key, string value)
-        {
-            using (var native = NSUserDefaults.StandardUserDefaults)
-            {
-                native.SetString(key, value);
-                native.Synchronize();
-            }
-            base.Set(key, value);
         }
     }
 }

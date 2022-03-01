@@ -6,8 +6,7 @@
         <Owners>aritchie;shinylib</Owners>
         <LangVersion>latest</LangVersion>
         <Nullable>enable</Nullable>
-		<EnableDefaultCompileItems>false</EnableDefaultCompileItems>
-        <Description>Shiny Platform Configuration for Android and iOS</Description>
+        <Description>Xamarin Configuration Sources (Android/iOS) for Microsoft.Extensions.Configuration</Description>
         <Product>$(AssemblyName) ($(TargetFramework))</Product>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <PackageProjectUrl>https://shinylib.net</PackageProjectUrl>
@@ -35,7 +34,8 @@
 
     <ItemGroup>
         <None Include="Platforms\**\*.cs" />
-        <None Remove="Platforms\**\*.cs" />
+		<Compile Remove="Platforms\**\*.cs" />
+
         <None Include="nuget.png" Pack="true" />
         <None Include="readme.txt" Pack="true" />
         <None Include="..\..\readme.md" Pack="true" PackagePath="\" />

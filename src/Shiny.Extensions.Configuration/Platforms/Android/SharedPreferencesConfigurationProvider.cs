@@ -12,22 +12,13 @@ namespace Shiny.Extensions.Configuration
 
         public override void Load()
         {
-            //.RegisterOnSharedPreferenceChangeListener;
-            using (var prefs = PreferenceManager.GetDefaultSharedPreferences(Application.Context))
-            {
-                if (prefs?.All != null)
-                { 
-                    foreach (var pair in prefs.All)
-                    {
-                        this.Data.Add(pair.Key, pair.Value.ToString());
-                    }
-                }
-                if (!this.loaded)
-                {
-                    //prefs.RegisterOnSharedPreferenceChangeListener()
-                    this.loaded = true;
-                }
-            }
+            // TODO: do I have to also trigger the load?
+            // TODO: do I have to populate data?
+            PreferenceManager
+                .GetDefaultSharedPreferences(Application.Context)
+                .RegisterOnSharedPreferenceChangeListener(new PrefChangeListener(() => this.OnReload()));
+
+            this.DoLoad();
             base.Load();
         }
 
@@ -43,6 +34,21 @@ namespace Shiny.Extensions.Configuration
                 }
             }
             base.Set(key, value);
+        }
+
+
+        protected virtual void DoLoad()
+        {
+            using (var prefs = PreferenceManager.GetDefaultSharedPreferences(Application.Context))
+            {
+                if (prefs?.All != null)
+                {
+                    foreach (var pair in prefs.All)
+                    {
+                        this.Data.Add(pair.Key, pair.Value.ToString());
+                    }
+                }
+            }
         }
     }
 }

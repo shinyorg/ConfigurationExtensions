@@ -13,6 +13,7 @@ on:
       - '.github/workflows/*.yml'
 env:
     BuildProject: '.\Configuration.sln'
+    DotNetVersion: '6.0.x'
 
 jobs:
 
@@ -31,11 +32,12 @@ jobs:
       - name: Setup .NET Core
         uses: actions/setup-dotnet@v1
         with:
-          dotnet-version: '6.0.x'
+          dotnet-version: ${{ env.DotNetVersion }}
 
       - name: Build
-        run: dotnet build ${{ env.BuildProject }} -c Release
+        if: ${{ github.ref != 'refs/heads/preview' }}
+        run: msbuild {{ env.BuildProject }} /restore -m -property:Configuration=Release
 
-      # - name: Publish NuGets
-      #   if: ${{ github.ref == 'refs/heads/master' || github.ref == 'refs/heads/preview' }}
-      #   run: dotnet nuget push **\*.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{ secrets.NUGETAPIKEY }} --skip-duplicate
+      - name: Publish NuGets
+        if: ${{ github.ref == 'refs/heads/master' || github.ref == 'refs/heads/preview' }}
+        run: dotnet nuget push **\*.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{ secrets.NUGETAPIKEY }} --skip-duplicate
