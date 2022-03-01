@@ -13,7 +13,7 @@
         <PackageProjectUrl>https://github.com/shinyorg/configurationextensions</PackageProjectUrl>
         <PackageReleaseNotes>https://github.com/shinyorg/configurationextensions</PackageReleaseNotes>
         <PackageTags>xamarin ios android configuration</PackageTags>
-		<PackageIcon>nuget.png</PackageIcon>
+		<PackageIcon>icon.png</PackageIcon>
         <PackageReadmeFile>readme.md</PackageReadmeFile>
         <RepositoryUrl>https://github.com/shinyorg/configurationextensions</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
@@ -37,7 +37,7 @@
         <None Include="Platforms\**\*.cs" />
 		<Compile Remove="Platforms\**\*.cs" />
 
-        <None Include="nuget.png" Pack="true" />
+        <None Include="$(MSBuildThisFileDirectory)nuget.png" Pack="true" PackagePath="icon.png" />
         <None Include="readme.txt" Pack="true" />
         <None Include="..\..\readme.md" Pack="true" PackagePath="\" />
         <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1" PrivateAssets="All" />

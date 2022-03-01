@@ -1,0 +1,8 @@
+{
+  "solution": {
+    "path": "Configuration.sln",
+    "projects": [
+      "src\\Shiny.Extensions.Configuration\\Shiny.Extensions.Configuration.csproj"
+    ]
+  }
+}

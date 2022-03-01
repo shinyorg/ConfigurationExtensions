@@ -36,7 +36,7 @@ jobs:
 
       - name: Build
         if: ${{ github.ref != 'refs/heads/preview' }}
-        run: msbuild Configuration.sln /restore -m -property:Configuration=Release
+        run: msbuild Build.slnf /restore -m -property:Configuration=Release
 
       - name: Publish NuGets
         if: ${{ github.ref == 'refs/heads/master' || github.ref == 'refs/heads/preview' }}
