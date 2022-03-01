@@ -7,7 +7,7 @@ namespace Sample
 
         public MainViewModel()
         {
-            IConfiguration configuration;
+            //App.Configuration
         }
     }
 }

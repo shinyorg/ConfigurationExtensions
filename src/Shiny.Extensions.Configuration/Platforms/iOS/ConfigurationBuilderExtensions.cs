@@ -1,4 +1,5 @@
 ﻿using Foundation;
+using Shiny.Extensions.Configuration;
 using System.IO;
 
 
@@ -13,11 +14,19 @@ namespace Microsoft.Extensions.Configuration
         /// <param name="fileName"></param>
         /// <param name="optional"></param>
         /// <returns></returns>
-        public static ConfigurationBuilder AddJsonIosBundle(this ConfigurationBuilder builder, string fileName = "appsettings.json", bool optional = true)
+        public static IConfigurationBuilder AddJsonIosBundle(this IConfigurationBuilder builder, string fileName = "appsettings.json", bool optional = true)
         {
             var path = Path.Combine(NSBundle.MainBundle.BundlePath, fileName);
-            builder.AddJsonFile(path, optional, false);
-            return builder;
+            return builder.AddJsonFile(path, optional, false);
         }
+
+
+        /// <summary>
+        ///
+        /// </summary>
+        /// <param name="builder"></param>
+        /// <returns></returns>
+        public static IConfigurationBuilder AddIosUserDefaults(this IConfigurationBuilder builder)
+            => builder.Add(new NSUserDefaultsConfigurationSource());
     }
 }

@@ -3,7 +3,7 @@
 
 namespace Shiny.Extensions.Configuration
 {
-    public class SharedPreferenceConfigurationProvider : ConfigurationProvider
+    public class SharedPreferencesConfigurationProvider : ConfigurationProvider
     {
         public override void Load()
         {

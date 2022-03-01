@@ -1,8 +1,10 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
 		<TargetFramework>netstandard2.0</TargetFramework>
 		<ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+		<Nullable>enable</Nullable>
+		<LangVersion>8.0</LangVersion>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -12,10 +14,9 @@
 
 	<ItemGroup>
 		<PackageReference Include="Xamarin.Forms" Version="5.0.0.2337" />
-		<PackageReference Include="Xamarin.Essentials" Version="1.7.1" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\..\src\Shiny.Extensions.Configuration\Shiny.Extensions.Configuration.csproj" />
+		<ProjectReference Include="..\..\src\Shiny.Extensions.Configuration\Shiny.Extensions.Configuration.csproj" />
 	</ItemGroup>
 </Project>

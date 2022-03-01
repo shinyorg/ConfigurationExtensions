@@ -3,9 +3,9 @@
 
 namespace Shiny.Extensions.Configuration
 {
-    public class AssetConfigurationSource : IConfigurationSource
+    public class SharedPreferencesConfigurationSource : IConfigurationSource
     {
         public IConfigurationProvider Build(IConfigurationBuilder builder)
-            => new AssetConfigurationProvider();
+            => new SharedPreferencesConfigurationProvider();
     }
 }
