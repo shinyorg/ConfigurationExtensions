@@ -1,9 +1,7 @@
 ﻿using Android.App;
 using Android.Content.PM;
 using Android.OS;
-
 using Microsoft.Extensions.Configuration;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 
@@ -28,10 +26,10 @@ namespace Sample.Droid
         {
             base.OnCreate(savedInstanceState);
 
-            App.Configuration = new ConfigurationBuilder()
-                .AddJsonAndroidAsset()
-                .AddAndroidPreferences()
-                .Build();
+            //App.Configuration = new ConfigurationBuilder()
+            //    .AddJsonAndroidAsset()
+            //    .AddAndroidPreferences()
+            //    .Build();
 
             Forms.Init(this, savedInstanceState);
             this.LoadApplication(new App());

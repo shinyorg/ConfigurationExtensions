@@ -9,14 +9,12 @@
 		<EnableDefaultCompileItems>false</EnableDefaultCompileItems>
         <Description>Shiny Platform Configuration for Android and iOS</Description>
         <Product>$(AssemblyName) ($(TargetFramework))</Product>
-        <ShinyVersion Condition=" '$(ShinyVersion)' == '' ">1.0.0</ShinyVersion>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <PackageProjectUrl>https://shinylib.net</PackageProjectUrl>
-        <PackageVersion>$(ShinyVersion)</PackageVersion>
         <PackageReleaseNotes>https://shinylib.net/release-notes/</PackageReleaseNotes>
         <PackageTags>xamarin ios android configuration</PackageTags>
-		<!--<PackageIcon>icon.png</PackageIcon>-->
-        <!--<PackageReadmeFile>readme.md</PackageReadmeFile>-->
+		<PackageIcon>nuget.png</PackageIcon>
+        <PackageReadmeFile>readme.md</PackageReadmeFile>
         <RepositoryUrl>https://github.com/shinyorg/shiny</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
     </PropertyGroup>
@@ -38,10 +36,11 @@
     <ItemGroup>
         <None Include="Platforms\**\*.cs" />
         <None Remove="Platforms\**\*.cs" />
-        <!--<None Include="$(MSBuildThisFileDirectory)nuget.png" Pack="true" PackagePath="icon.png" />
-        <None Include="$(MSBuildThisFileDirectory)nuget.txt" Pack="true" PackagePath="readme.txt" />
-        <None Include="..\..\readme.md" Pack="true" PackagePath="\" />-->
+        <None Include="nuget.png" Pack="true" />
+        <None Include="readme.txt" Pack="true" />
+        <None Include="..\..\readme.md" Pack="true" PackagePath="\" />
         <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1" PrivateAssets="All" />
+        <PackageReference Include="Nerdbank.GitVersioning" Version="3.4.255" PrivateAssets="All" />
 		<PackageReference Include="Microsoft.Extensions.Configuration" Version="6.0.0" />
 		<PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="6.0.0" />
 		<PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="6.0.0" />
@@ -60,9 +59,5 @@
     <ItemGroup Condition="$(TargetFramework.Contains('ios'))">
         <Compile Include="Platforms\Shared\**\*.cs" />
         <Compile Include="Platforms\iOS\**\*.cs" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <Compile Remove="Platforms\Shared\UwpTodo.cs" />
     </ItemGroup>
 </Project>

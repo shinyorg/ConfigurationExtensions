@@ -12,10 +12,10 @@ namespace Sample.iOS
     {
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
-            App.Configuration = new ConfigurationBuilder()
-                .AddJsonIosBundle()
-                .AddIosUserDefaults()
-                .Build();
+            //App.Configuration = new ConfigurationBuilder()
+            //    .AddJsonIosBundle()
+            //    .AddIosUserDefaults()
+            //    .Build();
 
             Forms.Init();
             this.LoadApplication(new App());
