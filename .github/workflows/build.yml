@@ -1,15 +1,17 @@
 name: Build
 
 on:
+  workflow_dispatch:
+    inputs:
+      logLevel:
+        description: 'Log level'
+        required: true
+        default: 'warning'
   push:
     branches: [ master, preview ]
     paths:
       - 'src/**'
       - '.github/workflows/**'
-  pull_request:
-    branches: [ master ]
-    paths:
-      - 'src/**'
 
 jobs:
 
