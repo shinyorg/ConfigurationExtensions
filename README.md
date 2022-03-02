@@ -71,5 +71,6 @@ config["key"] = "value"; // write - this will cause a persist to the platform pr
 
 ## Links
 * [Samples](https://github.com/shinyorg/ConfigurationExtensions/tree/master/Sample)
+* [Change Log](changelog.md)
 * [Microsoft Configuration Documentation](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/?view=aspnetcore-6.0)
 * [Microsoft Options Documentation](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/options?view=aspnetcore-6.0)

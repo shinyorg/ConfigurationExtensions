@@ -11,7 +11,7 @@
         <Product>$(AssemblyName) ($(TargetFramework))</Product>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <PackageProjectUrl>https://github.com/shinyorg/configurationextensions</PackageProjectUrl>
-        <PackageReleaseNotes>https://github.com/shinyorg/configurationextensions</PackageReleaseNotes>
+        <PackageReleaseNotes>https://github.com/shinyorg/shiny/blob/master/CHANGELOG.md</PackageReleaseNotes>
         <PackageTags>xamarin ios android configuration</PackageTags>
 		<PackageIcon>icon.png</PackageIcon>
         <PackageReadmeFile>readme.md</PackageReadmeFile>
