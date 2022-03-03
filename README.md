@@ -16,6 +16,22 @@
 |Dev|[![Build](https://github.com/shinyorg/configurationextensions/actions/workflows/build.yml/badge.svg?branch=dev)](https://github.com/shinyorg/configurationextensions/actions/workflows/build.yml)|
 |Preview|[![Build](https://github.com/shinyorg/configurationextensions/actions/workflows/build.yml/badge.svg?branch=preview)](https://github.com/shinyorg/configurationextensions/actions/workflows/build.yml)|
 
+## Features
+
+* All the power of IConfiguration
+* Load JSON from packaged sources (whitelabellers can unpack, edit, & repack the config)
+* Preferences based configuration source with writebacks
+* Support For
+    * Xamarin 
+        * iOS
+        * Android
+        * Including Xamarin Forms :P
+    * .NET 6
+        * Android
+        * iOS
+        * Including MAUI :P
+
+
 
 ## The Problem
 

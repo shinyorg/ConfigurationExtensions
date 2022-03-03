@@ -36,9 +36,10 @@
     <AndroidTlsProvider>Default (Native TLS 1.2+)</AndroidTlsProvider>
     <AndroidLinkTool>
     </AndroidLinkTool>
-    <EmbedAssembliesIntoApk>false</EmbedAssembliesIntoApk>
-    <BundleAssemblies>true</BundleAssemblies>
+    <EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
+    <BundleAssemblies>false</BundleAssemblies>
     <AndroidEnableSGenConcurrent>false</AndroidEnableSGenConcurrent>
+    <MandroidI18n />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
