@@ -26,10 +26,7 @@
         * iOS
         * Android
         * Including Xamarin Forms :P
-    * .NET 6
-        * Android
-        * iOS
-        * Including MAUI :P
+    * .NET 6 is coming
 
 
 

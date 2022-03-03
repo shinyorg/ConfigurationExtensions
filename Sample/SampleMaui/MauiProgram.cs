@@ -7,7 +7,7 @@ namespace SampleMaui
         public static MauiApp CreateMauiApp()
         {
             var config = new ConfigurationBuilder()
-                .AddJsonPlatformBundle()
+                .AddJsonPlatformBundle("appsettings.json", false)
                 .AddPlatformPreferences()
                 .Build();
 

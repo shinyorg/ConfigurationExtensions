@@ -1,15 +1,13 @@
-﻿using System.ComponentModel;
-
-namespace Microsoft.Extensions.Configuration
+﻿namespace Microsoft.Extensions.Configuration
 {
     public static partial class ConfigurationBuilderExtensions
     {
-        public static IConfigurationBuilder AddJsonPlatformBundle(this IConfigurationBuilder builder, string fileName = "appsettings.json")
+        public static IConfigurationBuilder AddJsonPlatformBundle(this IConfigurationBuilder builder, string fileName = "appsettings.json", bool optional = true)
         {
 #if XAMARIN_IOS || MACCATALYST || IOS
-            builder.AddJsonIosBundle(fileName);
+            builder.AddJsonIosBundle(fileName, optional);
 #elif MONOANDROID || ANDROID
-            builder.AddJsonAndroidAsset(fileName);
+            builder.AddJsonAndroidAsset(fileName, optional);
 #endif
             return builder;
         }

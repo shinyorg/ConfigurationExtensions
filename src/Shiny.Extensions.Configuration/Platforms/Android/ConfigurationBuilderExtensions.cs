@@ -1,6 +1,8 @@
 ﻿using Android.App;
 using Shiny.Extensions.Configuration;
 
+using System;
+using System.Linq;
 
 namespace Microsoft.Extensions.Configuration
 {
@@ -16,11 +18,17 @@ namespace Microsoft.Extensions.Configuration
         public static IConfigurationBuilder AddJsonAndroidAsset(this IConfigurationBuilder builder, string fileName = "appsettings.json", bool optional = true)
         {
             var assets = Application.Context.Assets;
-            //var files = assets.List(fileName);
-            //if (files != null && files.Length == 1)
+            var exists = assets
+                .List("")
+                .Any(x => x.Equals(fileName, StringComparison.InvariantCultureIgnoreCase));
+
+            if (exists)
                 builder.AddJsonStream(assets.Open(fileName));
 
-            return builder.AddJsonStream(assets.Open(fileName));
+            else if (!optional)
+                throw new InvalidOperationException($"Android Asset file '{fileName}' not found");
+
+            return builder;
         }
 
 
