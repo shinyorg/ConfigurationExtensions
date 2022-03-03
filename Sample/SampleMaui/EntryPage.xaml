@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:sample="clr-namespace:SampleMaui"
+             x:DataType="sample:EntryViewModel"
+             x:Class="SampleMaui.EntryPage"
+             Title="Configuration Entry">
+
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Key" />
+            <Entry Text="{Binding Key}" />
+
+            <Label Text="Value" />
+            <Entry Text="{Binding Value}" />
+
+            <Button Text="{Binding ActionText}"
+                    Command="{Binding Enter}" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
