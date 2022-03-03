@@ -6,9 +6,9 @@ namespace Microsoft.Extensions.Configuration
     {
         public static IConfigurationBuilder AddJsonPlatformBundle(this IConfigurationBuilder builder, string fileName = "appsettings.json")
         {
-#if XAMARIN_IOS
+#if XAMARIN_IOS || MACCATALYST || IOS
             builder.AddJsonIosBundle(fileName);
-#elif MONOANDROID
+#elif MONOANDROID || ANDROID
             builder.AddJsonAndroidAsset(fileName);
 #endif
             return builder;
@@ -17,9 +17,9 @@ namespace Microsoft.Extensions.Configuration
 
         public static IConfigurationBuilder AddPlatformPreferences(this IConfigurationBuilder builder)
         {
-#if XAMARIN_IOS
+#if XAMARIN_IOS || MACCATALYST || IOS
             builder.AddIosUserDefaults();
-#elif MONOANDROID
+#elif MONOANDROID || ANDROID
             builder.AddAndroidPreferences();
 #endif
             return builder;

@@ -16,8 +16,8 @@ namespace Microsoft.Extensions.Configuration
         public static IConfigurationBuilder AddJsonAndroidAsset(this IConfigurationBuilder builder, string fileName = "appsettings.json", bool optional = true)
         {
             var assets = Application.Context.Assets;
-            var files = assets.List(fileName);
-            if (files != null && files.Length == 1)
+            //var files = assets.List(fileName);
+            //if (files != null && files.Length == 1)
                 builder.AddJsonStream(assets.Open(fileName));
 
             return builder.AddJsonStream(assets.Open(fileName));
