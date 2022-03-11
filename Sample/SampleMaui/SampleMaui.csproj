@@ -56,6 +56,23 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\appicon.svg" />
+	  <None Remove="Resources\appiconfg.svg" />
+	  <None Remove="Resources\Fonts\OpenSans-Regular.ttf" />
+	  <None Remove="Resources\Images\dotnet_bot.svg" />
+	  <None Remove="Resources\Raw\appsettings.json" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <AndroidResource Include="Resources\appicon.svg" />
+	  <AndroidResource Include="Resources\appiconfg.svg" />
+	  <AndroidResource Include="Resources\Fonts\OpenSans-Regular.ttf" />
+	  <AndroidResource Include="Resources\Images\dotnet_bot.svg" />
+	  <AndroidResource Include="Resources\Raw\appsettings.json" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\src\Shiny.Extensions.Configuration.Sqlite\Shiny.Extensions.Configuration.Sqlite.csproj" />
 		<ProjectReference Include="..\..\src\Shiny.Extensions.Configuration\Shiny.Extensions.Configuration.csproj" />
 	</ItemGroup>
 
