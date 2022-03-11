@@ -4,7 +4,7 @@
     {
         public App(MainPage mainPage)
         {
-            InitializeComponent();
+            this.InitializeComponent();
             this.MainPage = new NavigationPage(mainPage);
         }
     }
