@@ -3,21 +3,9 @@
 	<PropertyGroup>
 		<TargetFrameworks>netstandard2.0;xamarin.ios10;monoandroid12.0;net6.0-android;net6.0-ios;net6.0-maccatalyst</TargetFrameworks>
 		<!--<TargetFrameworks Condition=" '$(OS)' == 'Windows_NT' ">$(TargetFrameworks);uap10.0.19041;net6.0-windows10.0.19041;</TargetFrameworks>-->
-        <Authors>Allan Ritchie</Authors>
-        <Owners>aritchie;shinylib</Owners>
-        <LangVersion>latest</LangVersion>
-        <Nullable>enable</Nullable>
         <Description>Xamarin Configuration Sources (Android/iOS) for Microsoft.Extensions.Configuration</Description>
         <Product>$(AssemblyName) ($(TargetFramework))</Product>
-        <PackageLicenseExpression>MIT</PackageLicenseExpression>
-        <PackageProjectUrl>https://github.com/shinyorg/configurationextensions</PackageProjectUrl>
-        <PackageReleaseNotes>https://github.com/shinyorg/shiny/blob/master/CHANGELOG.md</PackageReleaseNotes>
         <PackageTags>xamarin ios android configuration</PackageTags>
-		<PackageIcon>icon.png</PackageIcon>
-        <PackageReadmeFile>readme.md</PackageReadmeFile>
-        <RepositoryUrl>https://github.com/shinyorg/configurationextensions</RepositoryUrl>
-        <RepositoryType>git</RepositoryType>
-
 		<SupportedOSPlatformVersion Condition="$(TargetFramework.Contains('-ios'))">10.0</SupportedOSPlatformVersion>
 		<SupportedOSPlatformVersion Condition="$(TargetFramework.Contains('-tvos'))">10.0</SupportedOSPlatformVersion>
 		<SupportedOSPlatformVersion Condition="$(TargetFramework.Contains('-maccatalyst'))">13.1</SupportedOSPlatformVersion>
@@ -27,30 +15,9 @@
 		<TargetPlatformMinVersion Condition="$(TargetFramework.Contains('-windows10'))">10.0.17763.0</TargetPlatformMinVersion>
 	</PropertyGroup>
 
-    <PropertyGroup Condition="'$(Configuration)' == 'Release'">
-        <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
-        <IncludeSource>True</IncludeSource>
-        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-        <GenerateDocumentationFile>true</GenerateDocumentationFile>
-        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
-        <PublishRepositoryUrl>True</PublishRepositoryUrl>
-        <EmbedUntrackedSources>True</EmbedUntrackedSources>
-    </PropertyGroup>
-
-    <PropertyGroup Condition="'$(GITHUB_ACTIONS)' == 'true'">
-        <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
-    </PropertyGroup>
-
     <ItemGroup>
         <None Include="Platforms\**\*.cs" />
 		<Compile Remove="Platforms\**\*.cs" />
-
-        <None Include="$(MSBuildThisFileDirectory)nuget.png" Pack="true" PackagePath="icon.png" />
-        <None Include="readme.txt" Pack="true" />
-        <None Include="..\..\readme.md" Pack="true" PackagePath="\" />
-        <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1" PrivateAssets="All" />
-        <PackageReference Include="Nerdbank.GitVersioning" Version="3.4.255" PrivateAssets="All" />
-		<PackageReference Include="Microsoft.Extensions.Configuration" Version="6.0.0" />
 		<PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="6.0.0" />
 		<PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="6.0.0" />
     </ItemGroup>
