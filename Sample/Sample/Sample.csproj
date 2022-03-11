@@ -17,6 +17,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<ProjectReference Include="..\..\src\Shiny.Extensions.Configuration.Sqlite\Shiny.Extensions.Configuration.Sqlite.csproj" />
 		<ProjectReference Include="..\..\src\Shiny.Extensions.Configuration\Shiny.Extensions.Configuration.csproj" />
 	</ItemGroup>
 
