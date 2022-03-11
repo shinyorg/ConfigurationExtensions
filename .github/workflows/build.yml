@@ -8,7 +8,7 @@ on:
         required: true
         default: 'warning'
   push:
-    branches: [ master, preview ]
+    branches: [ master, dev, preview ]
     paths:
       - 'src/**'
       - '.github/workflows/**'
