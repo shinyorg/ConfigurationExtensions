@@ -45,8 +45,7 @@ jobs:
         run: dotnet workload install maccatalyst
 
       - name: Build
-        if: ${{ github.ref != 'refs/heads/preview' }}
-        run: msbuild Build.slnf /restore -m -property:Configuration=Release
+        run: msbuild Build.slnf /restore -m -property:Configuration=Release -property:PublicRelease=true
 
       - name: Publish NuGets
         if: ${{ github.ref == 'refs/heads/master' || github.ref == 'refs/heads/preview' }}
