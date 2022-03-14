@@ -1,5 +1,6 @@
 ﻿using Microsoft.Data.Sqlite;
 using Microsoft.Extensions.Configuration;
+using System;
 using System.Data;
 
 
@@ -17,7 +18,7 @@ namespace Shiny.Extensions.Configuration.Sqlite
             this.Execute("CREATE TABLE IF NOT EXISTS ConfigurationValues(Key TEXT PRIMARY KEY, Value TEXT)");
             this.ExecuteRead(
                 reader => this.Data.Add(
-                    reader.GetString(0), 
+                    reader.GetString(0),
                     reader.GetString(1)
                 ),
                 "SELECT Key, Value FROM ConfigurationValues ORDER BY Key"
@@ -37,7 +38,7 @@ namespace Shiny.Extensions.Configuration.Sqlite
         }
 
 
-        
+
         int Execute(string sql, params SqliteParameter[] parameters)
         {
             using (var conn = new SqliteConnection(this.connectionString))
@@ -74,7 +75,7 @@ namespace Shiny.Extensions.Configuration.Sqlite
                     }
                     using (var reader = command.ExecuteReader(CommandBehavior.CloseConnection))
                     {
-                        while (reader.Read()) 
+                        while (reader.Read())
                             onRead(reader);
                     }
                 }
