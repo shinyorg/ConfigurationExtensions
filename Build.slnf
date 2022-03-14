@@ -2,6 +2,7 @@
   "solution": {
     "path": "Configuration.sln",
     "projects": [
+      "src\\Shiny.Extensions.Configuration.Sqlite\\Shiny.Extensions.Configuration.Sqlite.csproj",
       "src\\Shiny.Extensions.Configuration\\Shiny.Extensions.Configuration.csproj"
     ]
   }
