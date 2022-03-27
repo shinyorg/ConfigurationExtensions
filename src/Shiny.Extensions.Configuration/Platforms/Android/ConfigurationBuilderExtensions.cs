@@ -1,8 +1,8 @@
 ﻿using Android.App;
 using Shiny.Extensions.Configuration;
-
 using System;
 using System.Linq;
+
 
 namespace Microsoft.Extensions.Configuration
 {

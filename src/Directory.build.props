@@ -4,6 +4,7 @@
         <Authors>Allan Ritchie</Authors>
         <Owners>aritchie; shinylib</Owners>
         <LangVersion>9.0</LangVersion>
+		<ImplicitUsing>disable</ImplicitUsing>
         <Nullable>enable</Nullable>
         <ContinuousIntegrationBuild>$(ContinuousIntegrationBuild)</ContinuousIntegrationBuild>
         <DisableExtraReferences>False</DisableExtraReferences>
@@ -11,7 +12,7 @@
 		<PackageIcon>icon.png</PackageIcon>
 		<PackageReadmeFile>readme.md</PackageReadmeFile>
 		<PackageProjectUrl>https://github.com/shinyorg/configurationextensions</PackageProjectUrl>
-		<PackageReleaseNotes>https://github.com/shinyorg/shiny/blob/master/CHANGELOG.md</PackageReleaseNotes>
+		<PackageReleaseNotes>https://github.com/shinyorg/configurationextensions/blob/master/CHANGELOG.md</PackageReleaseNotes>
 		<RepositoryUrl>https://github.com/shinyorg/configurationextensions</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
 	</PropertyGroup>
