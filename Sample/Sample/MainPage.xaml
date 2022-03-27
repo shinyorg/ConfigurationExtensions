@@ -22,38 +22,35 @@
                    HorizontalTextAlignment="Center"
                    Grid.Row="0" />
 
-            <CollectionView ItemsSource="{Binding Values}"
-                            Grid.Row="1">
-                <CollectionView.ItemTemplate>
-                    <DataTemplate x:DataType="sample:Item">
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto" />
-                                <RowDefinition Height="Auto" />
-                                <RowDefinition Height="Auto" />
-                            </Grid.RowDefinitions>
+            <RefreshView Grid.Row="1" Command="{Binding Load}">
+                <CollectionView ItemsSource="{Binding Values}">
 
-                            <Label Text="{Binding Key}"
-                                    TextColor="Red"
-                                    FontSize="Large"
-                                    FontAttributes="Bold"
-                                    Grid.Row="0" />
+                    <CollectionView.EmptyView>
+                        <Label Text="No Items Founds" />
+                    </CollectionView.EmptyView>
 
-                            <Label Text="{Binding Value}"
-                                   TextColor="Red"
-                                   FontSize="Medium"
-                                   FontAttributes="Italic"
-                                   Grid.Row="1" />
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="sample:Item">
+                            <StackLayout>
+                                <Label Text="{Binding Key}"
+                                        TextColor="Red"
+                                        FontSize="Large"
+                                        FontAttributes="Bold" />
 
-                            <BoxView HorizontalOptions="FillAndExpand"
-                                     VerticalOptions="Center"
-                                     BackgroundColor="Red"
-                                     HeightRequest="1"
-                                     Grid.Row="2" />
-                        </Grid>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
+                                <Label Text="{Binding Value}"
+                                       TextColor="Red"
+                                       FontSize="Medium"
+                                       FontAttributes="Italic" />
+
+                                <BoxView HorizontalOptions="FillAndExpand"
+                                         VerticalOptions="Center"
+                                         BackgroundColor="Red"
+                                         HeightRequest="1" />
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </RefreshView>
         </Grid>
     </ContentPage.Content>
 </ContentPage>
