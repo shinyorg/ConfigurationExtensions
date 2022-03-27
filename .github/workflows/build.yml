@@ -51,10 +51,10 @@ jobs:
         if: ${{ github.ref == 'refs/heads/master' || github.ref == 'refs/heads/preview' }}
         run: dotnet nuget push **\*.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{ secrets.NUGETAPIKEY }} --skip-duplicate
 
-      - name: Create Release
-        if: ${{ github.ref == 'refs/heads/master' }}
-        uses: ncipollo/release-action@v1
-        with:
-            artifacts: "**/*.nupkg"
-            bodyFile: "CHANGELOG.md"
-            token: ${{ secrets.GITHUB_TOKEN }}
+      #- name: Create Release
+      #  if: ${{ github.ref == 'refs/heads/master' }}
+      #  uses: ncipollo/release-action@v1
+      #  with:
+      #      artifacts: "**/*.nupkg"
+      #      bodyFile: "CHANGELOG.md"
+      #      token: ${{ secrets.GITHUB_TOKEN }}
