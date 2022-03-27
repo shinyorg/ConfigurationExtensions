@@ -1,6 +1,6 @@
-﻿------------------------------
-Shiny.Extensions.Configuration
-------------------------------
+﻿-------------------------------------
+Shiny.Extensions.Configuration.Sqlite
+-------------------------------------
 
 GitHub: https://github.com/shinyorg/configurationextensions
 Blog: https://allanritchie.com
