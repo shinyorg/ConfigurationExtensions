@@ -4,7 +4,7 @@
         <Authors>Allan Ritchie</Authors>
         <Owners>aritchie; shinylib</Owners>
         <LangVersion>9.0</LangVersion>
-		<ImplicitUsing>disable</ImplicitUsing>
+		<ImplicitUsings>disable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <ContinuousIntegrationBuild>$(ContinuousIntegrationBuild)</ContinuousIntegrationBuild>
         <DisableExtraReferences>False</DisableExtraReferences>
