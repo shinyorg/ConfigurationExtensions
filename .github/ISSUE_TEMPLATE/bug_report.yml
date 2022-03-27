@@ -1,0 +1,56 @@
+name: Bug Report
+description: You have an issue
+title: "[Bug]: "
+labels: [bug, unverified]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for filing an issue.  Please only file issues against the LATEST STABLE version of the library from Nuget
+        If you have questions, please post them in GitHub discussions
+  - type: checkboxes
+    id: platforms
+    attributes:
+      label: What platform(s) are effected?
+      description: You may select more than one.  Only platforms listed here are supported!
+      options:
+      - label: iOS
+      - label: Android
+  - type: textarea
+    validations:
+      required: true
+    attributes:
+      label: Steps To Reproduce
+      description: Steps to reproduce the behavior.
+      placeholder: |
+        1.
+        2.
+        3.
+  - type: textarea
+    attributes:
+      label: Expected Behavior
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Actual Behavior
+    validations:
+      required: true
+  - type: textarea
+    id: exception
+    attributes:
+      label: Exception or Log output
+      description: Please copy and paste any relevant log output
+  - type: textarea
+    id: codesample
+    attributes:
+      label: Code Sample
+      description: Please copy/paste or attach a reproducible sample
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct
+      description: By submitting this issue, you agree to follow our [Code of Conduct](https://github.com/shinyorg/shiny/blob/master/.github/CODE_OF_CONDUCT.md)
+      options:
+        - label: I agree to follow this project's Code of Conduct
+          required: true
