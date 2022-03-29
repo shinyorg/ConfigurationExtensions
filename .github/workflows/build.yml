@@ -47,7 +47,6 @@ jobs:
         run: msbuild Build.slnf /restore -m -property:Configuration=Release
 
       - name: Publish NuGets
-        if: ${{ github.ref == 'refs/heads/master' || github.ref == 'refs/heads/preview' }}
         run: dotnet nuget push **\*.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{ secrets.NUGETAPIKEY }} --skip-duplicate
 
       #- name: Create Release
