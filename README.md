@@ -1,20 +1,13 @@
 # Xamarin Configuration for Microsoft.Extensions.Configuration
 
+[![Build](https://github.com/shinyorg/configurationextensions/actions/workflows/build.yml/badge.svg)](https://github.com/shinyorg/configurationextensions/actions/workflows/build.yml)
+
 ## Nugets
 
 |Release|NuGet|
 |-------|-----|
 |Stable|![Nuget](https://img.shields.io/nuget/v/shiny.extensions.configuration?style=for-the-badge)|
 |Preview|![Nuget (with prereleases)](https://img.shields.io/nuget/vpre/shiny.extensions.configuration?style=for-the-badge)|
-
-
-## Builds
-
-|Branch|Status|
-|------|------|
-|Master|[![Build](https://github.com/shinyorg/configurationextensions/actions/workflows/build.yml/badge.svg)](https://github.com/shinyorg/configurationextensions/actions/workflows/build.yml)|
-|Dev|[![Build](https://github.com/shinyorg/configurationextensions/actions/workflows/build.yml/badge.svg?branch=dev)](https://github.com/shinyorg/configurationextensions/actions/workflows/build.yml)|
-|Preview|[![Build](https://github.com/shinyorg/configurationextensions/actions/workflows/build.yml/badge.svg?branch=preview)](https://github.com/shinyorg/configurationextensions/actions/workflows/build.yml)|
 
 ## Features
 
