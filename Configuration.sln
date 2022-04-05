@@ -30,7 +30,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lib", "lib", "{8DE28263-99E
 		src\Directory.build.props = src\Directory.build.props
 		src\Directory.build.targets = src\Directory.build.targets
 		src\nuget.png = src\nuget.png
-		src\version.json = src\version.json
+		version.json = version.json
 	EndProjectSection
 EndProject
 Global
