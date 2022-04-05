@@ -4,6 +4,7 @@
   "buildNumberOffset": 11,
   "publicReleaseRefSpec": [
     "^refs/heads/master$",
+    "^refs/heads/v\\d+\\.\\d+$"
     "^refs/heads/v\\d+\\.\\d+\\.\\d+$"
   ]
 }
