@@ -2,9 +2,6 @@
   "$schema": "https://raw.githubusercontent.com/dotnet/Nerdbank.GitVersioning/master/src/NerdBank.GitVersioning/version.schema.json",
   "version": "1.2.0-preview.{height}",
   "buildNumberOffset": 11,
-  "assemblyVersion": {
-    "precision": "revision"
-  },
   "publicReleaseRefSpec": [
     "^refs/heads/master$",
     "^refs/heads/v\\d+\\.\\d+\\.\\d+$"
