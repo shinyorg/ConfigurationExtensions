@@ -13,6 +13,7 @@ namespace SampleMaui
                 .Build();
 
             var builder = MauiApp.CreateBuilder();
+            //builder.Configuration.AddJsonPlatformBundle();
 
             builder.Services.AddSingleton(config);
             builder.Services.AddTransient<MainPage>();
