@@ -16,8 +16,9 @@ namespace Sample
         {
             Configuration ??= new ConfigurationBuilder()
                 .AddJsonPlatformBundle()
+                .AddJsonPlatformBundle("global.json")
                 .AddPlatformPreferences()
-                .AddSqlite()
+                //.AddSqlite()
                 .Build();
 
             this.InitializeComponent();

@@ -36,10 +36,11 @@
     <AndroidTlsProvider>Default (Native TLS 1.2+)</AndroidTlsProvider>
     <AndroidLinkTool>
     </AndroidLinkTool>
-    <EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
+    <EmbedAssembliesIntoApk>false</EmbedAssembliesIntoApk>
     <BundleAssemblies>false</BundleAssemblies>
     <AndroidEnableSGenConcurrent>false</AndroidEnableSGenConcurrent>
     <MandroidI18n />
+    <AndroidSupportedAbis>armeabi-v7a;x86;x86_64;arm64-v8a</AndroidSupportedAbis>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -70,6 +71,9 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\appsettings.json" />
+    <AndroidAsset Include="..\..\global.json">
+      <Link>Assets\global.json</Link>
+    </AndroidAsset>
     <None Include="Properties\AndroidManifest.xml" />
   </ItemGroup>
   <ItemGroup>

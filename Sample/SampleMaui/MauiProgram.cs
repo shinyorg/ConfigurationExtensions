@@ -24,7 +24,7 @@ namespace SampleMaui
                 .UseMauiApp<App>()
                 .ConfigureFonts(fonts =>
                 {
-                    fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
+                    fonts.AddFont("OpenSans.ttf", "OpenSansRegular");
                 });
 
             return builder.Build();

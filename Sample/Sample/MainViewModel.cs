@@ -16,24 +16,25 @@ namespace Sample
 
         public MainViewModel()
         {
+            this.Values = new List<Item>();
             this.changeToken = App.Configuration.GetReloadToken();
             this.changeToken.RegisterChangeCallback(_ => this.Load!.Execute(null), null);
 
             this.Load = new Command(() =>
             {
+                this.IsBusy = true;
                 var en = App.Configuration.AsEnumerable().GetEnumerator();
-                this.Values.Clear();
+                var list = new List<Item>();
 
                 while (en.MoveNext())
                 {
                     Console.WriteLine($"{en.Current.Key}: {en.Current.Value}");
 
-                    this.Values.Add(new Item(en.Current.Key, en.Current.Value));
+                    list.Add(new Item(en.Current.Key, en.Current.Value));
                 }
-
                 this.LastLoad = DateTime.Now;
-                this.RaisePropertyChanged(nameof(this.LastLoad));
-                this.RaisePropertyChanged(nameof(this.Values));
+                this.Values = list;
+                this.IsBusy = false;
             });
 
             this.Set = new Command(async () =>
@@ -43,8 +44,35 @@ namespace Sample
         }
 
 
-        public DateTime LastLoad { get; private set; }
-        public List<Item> Values { get; } = new List<Item>();
+        bool busy;
+        public bool IsBusy
+        {
+            get => this.busy;
+            set => this.Set(ref this.busy, value);
+        }
+
+        
+        DateTime lastLoad;
+        public DateTime LastLoad 
+        {
+            get => this.lastLoad;
+            private set => this.Set(ref this.lastLoad, value);
+        }
+
+
+
+        List<Item> values;
+        public List<Item> Values 
+        { 
+            get => this.values;
+            set
+            {
+                this.values = value;
+                this.RaisePropertyChanged();
+            }
+        }
+
+
         public ICommand Load { get; }
         public ICommand Set { get; }
 

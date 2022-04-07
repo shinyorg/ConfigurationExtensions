@@ -6,6 +6,10 @@
              x:Class="Sample.MainPage"
              Title="Configuration">
 
+    <ContentPage.BindingContext>
+        <sample:MainViewModel />
+    </ContentPage.BindingContext>
+    
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Set" Command="{Binding Set}" />
     </ContentPage.ToolbarItems>
@@ -22,7 +26,9 @@
                    HorizontalTextAlignment="Center"
                    Grid.Row="0" />
 
-            <RefreshView Grid.Row="1" Command="{Binding Load}">
+            <RefreshView Grid.Row="1" 
+                         Command="{Binding Load}"
+                         IsRefreshing="{Binding IsBusy}">
                 <CollectionView ItemsSource="{Binding Values}">
 
                     <CollectionView.EmptyView>

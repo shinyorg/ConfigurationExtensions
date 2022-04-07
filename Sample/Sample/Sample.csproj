@@ -7,10 +7,10 @@
 		<LangVersion>8.0</LangVersion>
 	</PropertyGroup>
 
-	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+	<!--<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
 		<DebugType>portable</DebugType>
 		<DebugSymbols>true</DebugSymbols>
-	</PropertyGroup>
+	</PropertyGroup>-->
 
 	<ItemGroup>
 		<PackageReference Include="Xamarin.Forms" Version="5.0.0.2337" />
@@ -21,9 +21,4 @@
 		<ProjectReference Include="..\..\src\Shiny.Extensions.Configuration\Shiny.Extensions.Configuration.csproj" />
 	</ItemGroup>
 
-	<ItemGroup>
-	  <EmbeddedResource Update="EntryPage.xaml">
-	    <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-	  </EmbeddedResource>
-	</ItemGroup>
 </Project>
