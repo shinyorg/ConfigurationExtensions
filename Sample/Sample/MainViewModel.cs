@@ -18,7 +18,14 @@ namespace Sample
         {
             this.Values = new List<Item>();
             this.changeToken = App.Configuration.GetReloadToken();
-            this.changeToken.RegisterChangeCallback(_ => this.Load!.Execute(null), null);
+            this.changeToken.RegisterChangeCallback(
+                _ =>
+                {
+                    this.LastLoad = DateTime.Now;
+                    this.Load!.Execute(null);
+                }, 
+                null
+            );
 
             this.Load = new Command(() =>
             {
@@ -27,12 +34,8 @@ namespace Sample
                 var list = new List<Item>();
 
                 while (en.MoveNext())
-                {
-                    Console.WriteLine($"{en.Current.Key}: {en.Current.Value}");
-
                     list.Add(new Item(en.Current.Key, en.Current.Value));
-                }
-                this.LastLoad = DateTime.Now;
+                
                 this.Values = list;
                 this.IsBusy = false;
             });

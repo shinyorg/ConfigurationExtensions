@@ -21,7 +21,7 @@
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
-            <Label Text="{Binding LastLoad, StringFormat='Last Loaded: {0:hh:mm:ss}'}"
+            <Label Text="{Binding LastLoad, StringFormat='Last Change: {0:hh:mm:ss}'}"
                    FontSize="Title"
                    HorizontalTextAlignment="Center"
                    Grid.Row="0" />
@@ -39,18 +39,16 @@
                         <DataTemplate x:DataType="sample:Item">
                             <StackLayout>
                                 <Label Text="{Binding Key}"
-                                        TextColor="Red"
-                                        FontSize="Large"
+                                        FontSize="Medium"
                                         FontAttributes="Bold" />
 
                                 <Label Text="{Binding Value}"
-                                       TextColor="Red"
-                                       FontSize="Medium"
+                                       FontSize="Micro"
                                        FontAttributes="Italic" />
 
                                 <BoxView HorizontalOptions="FillAndExpand"
                                          VerticalOptions="Center"
-                                         BackgroundColor="Red"
+                                         BackgroundColor="LightGray"
                                          HeightRequest="1" />
                             </StackLayout>
                         </DataTemplate>
