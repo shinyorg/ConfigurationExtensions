@@ -1,6 +1,7 @@
 # Xamarin Configuration for Microsoft.Extensions.Configuration
 
-[![Build](https://github.com/shinyorg/configurationextensions/actions/workflows/build.yml/badge.svg)](https://github.com/shinyorg/configurationextensions/actions/workflows/build.yml)
+* [![Build](https://github.com/shinyorg/configurationextensions/actions/workflows/build.yml/badge.svg)](https://github.com/shinyorg/configurationextensions/actions/workflows/build.yml)
+* [Sample](https://github.com/shinyorg/samples/tree/main/ConfigurationExtensions)
 
 ## Nugets
 
