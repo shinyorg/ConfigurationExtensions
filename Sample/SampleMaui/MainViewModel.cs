@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Primitives;
+using System.Collections.ObjectModel;
 using System.Windows.Input;
 
 
@@ -8,8 +9,6 @@ namespace SampleMaui
     public class MainViewModel : Shiny.NotifyPropertyChanged
     {
         readonly IChangeToken changeToken;
-        bool initialLoad = true;
-
 
         public MainViewModel(IConfiguration configuration, IServiceProvider serviceProvider)
         {
@@ -26,6 +25,7 @@ namespace SampleMaui
                     Console.WriteLine($"{en.Current.Key}: {en.Current.Value}");
 
                     this.Values.Add(new Item(en.Current.Key, en.Current.Value));
+
                 }
 
                 this.LastLoad = DateTime.Now;
@@ -42,18 +42,15 @@ namespace SampleMaui
 
 
         public DateTime LastLoad { get; private set; }
-        public List<Item> Values { get; } = new List<Item>();
+        public ObservableCollection<Item> Values { get; set; } = new ObservableCollection<Item>();
         public ICommand Load { get; }
         public ICommand Set { get; }
 
 
         public void OnAppearing()
         {
-            if (this.initialLoad)
-            {
-                this.Load.Execute(null);
-                this.initialLoad = false;
-            }
+           this.Load.Execute(null);
+
         }
     }
 }

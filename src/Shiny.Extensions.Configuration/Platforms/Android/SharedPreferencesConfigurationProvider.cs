@@ -29,7 +29,7 @@ namespace Shiny.Extensions.Configuration
             {
                 using (var editor = prefs.Edit()!)
                 {
-                    editor.PutString(key, value);
+                    editor.PutString(key.ToLower(), value);
                     editor.Apply();
                 }
             }

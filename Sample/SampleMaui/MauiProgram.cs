@@ -9,12 +9,11 @@ namespace SampleMaui
             var config = new ConfigurationBuilder()
                 .AddJsonPlatformBundle("appsettings.json", false)
                 .AddPlatformPreferences()
-                .AddSqlite()
                 .Build();
 
             var builder = MauiApp.CreateBuilder();
 
-            builder.Services.AddSingleton(config);
+            builder.Configuration.AddConfiguration(config);
             builder.Services.AddTransient<MainPage>();
             builder.Services.AddTransient<MainViewModel>();
             builder.Services.AddTransient<EntryPage>();
